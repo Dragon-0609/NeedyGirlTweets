@@ -42,7 +42,7 @@ public class ResourceChanger
 
 		Log($"Is tweet list found: {_tweetList != null}");
 		
-		_assetBundle = LoadAssetBundle("dragon_lv.messages.bundle");
+		_assetBundle = LoadAssetBundle("dragon_lv.tweets.bundle");
 
 		if (ImagesCache == null)
 		{
