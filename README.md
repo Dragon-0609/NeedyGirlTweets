@@ -24,13 +24,13 @@ If it's working, it should add custom arts to the game after mentioned tweets I 
 
 -----
 
-## Disclosure
-
-This mod uses arts generated with AI. If you don't like AI, then don't install this mod
-
 ## Contribution
 
 If you're interested to add your arts to the game with this mod or any other suggestion, feel free to open issue in the repository
+
+## Disclosure
+
+This mod uses arts generated with AI. If you don't like AI, then don't install this mod
 
 
 <br>
