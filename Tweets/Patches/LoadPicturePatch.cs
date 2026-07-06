@@ -16,7 +16,7 @@ public static class LoadPicturePatch
 		LoadPictures.PictureType type,
 		ref UniTask<Sprite> __result)
 	{
-		// Log("Prefix worked");
+		Log("Prefix worked");
 		if (ResourceChanger.Instance == null)
 		{
 			Debug.LogWarning($"ResourceChanger instance is null");

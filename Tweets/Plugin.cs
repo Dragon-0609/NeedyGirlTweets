@@ -52,7 +52,9 @@ namespace Tweets
 			_resourceChanger.TryAddPrivateImage(TweetType.Tweet205, CommandType.Deai, "ame_dinder_2");
 			_resourceChanger.TryAddPrivateImage(TweetType.Tweet213, CommandType.Deai, "ame_dinder_3");
 			_resourceChanger.TryAddPrivateImage(TweetType.Tweet044, CommandType.Deai, "ame_dinder_4");
-			// _resourceChanger.LogList();
+			
+			// _resourceChanger.LogToFile();
+			// _resourceChanger.LogList(); 
 		}
 		
 		private void InitData()

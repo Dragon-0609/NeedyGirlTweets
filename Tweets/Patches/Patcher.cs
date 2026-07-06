@@ -65,7 +65,6 @@ public class Patcher
 
 	private void DelayedCheck()
 	{
-		// 1. Get the original method you targeted
 		CheckPatch(AccessTools.Method(typeof(LoadPictures), nameof(LoadPictures.LoadPictureAsync)));
 		CheckPatch(AccessTools.Method(typeof(PoketterCell2D), nameof(PoketterCell2D.SetData)));
 	}
@@ -78,12 +77,10 @@ public class Patcher
 
 		Log($"Does original ({originalName}) exist: {original != null}");
 
-// 2. Get all patches applied to that method
 		var patchInfo = Harmony.GetPatchInfo(original);
 
 		Log($"Does patchInfo exist: {patchInfo != null}");
 
-// 3. Check if your specific owner ID (your mod's ID) is in the Prefixes list
 		if (patchInfo != null)
 		{
 			bool isMyPrefixApplied = patchInfo.Prefixes.Any(p => p.owner == PluginGuid);

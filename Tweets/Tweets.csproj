@@ -53,6 +53,9 @@
         <Reference Include="DOTweenPro.Scripts">
             <HintPath>..\..\Libraries\game\DOTweenPro.Scripts.dll</HintPath>
         </Reference>
+        <Reference Include="Newtonsoft.Json">
+          <HintPath>..\..\Libraries\game_core\Newtonsoft.Json.dll</HintPath>
+        </Reference>
         <Reference Include="Ookii.Dialogs">
             <HintPath>..\..\Libraries\game\Ookii.Dialogs.dll</HintPath>
         </Reference>
@@ -106,9 +109,12 @@
         <Compile Include="Utils\MonoBehaviourExtensions.cs"/>
         <Compile Include="Utils\ReflectionExtensions.cs"/>
         <Compile Include="Utils\StreamHelper.cs" />
+        <Compile Include="Utils\TweetData.cs" />
         <Compile Include="Utils\WaitUntil.cs"/>
     </ItemGroup>
     <ItemGroup>
+      <Content Include="Data\tweets_changed.json" />
+      <Content Include="Data\tweets_original.json" />
       <EmbeddedResource Include="AssetBundles\dragon_lv.tweets.bundle" />
       <Content Include="AssetBundlesToCopy.txt" />
     </ItemGroup>

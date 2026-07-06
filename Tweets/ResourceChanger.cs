@@ -1,12 +1,17 @@
-﻿using System.Collections.Generic;
+﻿#nullable enable
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Text;
 using HarmonyLib;
+using Newtonsoft.Json;
 using NGO;
 using ngov3;
 using Tweets.Utils;
 using Tweets.Utils.Data;
 using UnityEngine;
+using TweetData = Tweets.Utils.TweetData;
 
 namespace Tweets;
 
@@ -41,8 +46,8 @@ public class ResourceChanger
 			.GetValue(null) as Dictionary<string, LoadPictures.PictureHandleData>;
 
 		Log($"Is tweet list found: {_tweetList != null}");
-		
-		_assetBundle = LoadAssetBundle("dragon_lv.tweets.bundle");
+
+		_assetBundle = LoadAssetBundle(PluginBundle);
 
 		if (ImagesCache == null)
 		{
@@ -52,11 +57,48 @@ public class ResourceChanger
 
 	public void LogList()
 	{
-			
-			
 		foreach (TweetMaster.Param param in _tweetList)
 		{
 			LogParam(param);
+		}
+	}
+
+	public void LogToFile()
+	{
+		TweetCollection collection = new TweetCollection();
+		
+		foreach (TweetMaster.Param param in _tweetList)
+		{
+			Log($"Adding {param.Id}, command: {param.CommandID}");
+			collection.Tweets.Add(new TweetData()
+			{
+				TweetId = param.Id,
+				CommandId = param.CommandID,
+				publicImage = ProcessField(param.OmoteImageId),
+				privateImage = ProcessField(param.UraImageId),
+				publicText = ProcessField(param.OmoteBodyEn),
+				privateText = ProcessField(param.UraBodyEn),
+			});
+		}
+
+		string json = JsonConvert.SerializeObject(collection, Formatting.Indented);
+		Log($"{collection.Tweets.Count} tweets count, content: {json}");
+		File.WriteAllText("tweets.json", json);
+
+		return;
+		
+		string? ProcessField(string field)
+		{
+			if (field == null) return null;
+			string trim = field.Trim();
+			if (trim.Length < 2) return null;
+
+			if (trim.Equals("N/A", StringComparison.InvariantCultureIgnoreCase))
+			{
+				return null;
+			}
+			
+			return field;
 		}
 	}
 
@@ -78,7 +120,7 @@ public class ResourceChanger
 		{
 			param.UraImageId = "ame_1";
 		}*/
-
+		
 		Log(
 			$"Tweet ID:{param.Id}, command ID: {param.CommandID} ({command}), public image: {param.OmoteImageId}, private image: {param.UraImageId}, \npublic text: {param.OmoteBodyEn}\n\nprivate text:{param.UraBodyEn}\n");
 	}
@@ -98,7 +140,7 @@ public class ResourceChanger
 		finding.UraImageId = image;
 		
 		_customImages.Add(image);
-		Log($"Added {image} to customImages");
+		// Log($"Added {image} to customImages");
 		
 		_resourceMaster.ResourceList.Add(new ResourceLocal()
 		{
@@ -150,8 +192,8 @@ public class ResourceChanger
 	
 	private static Stream GetAssetBundleResource(string name)
 	{
-		Debug.Log($"Loading Bundle: {"Messages.AssetBundles." + name}");
-		return Assembly.GetExecutingAssembly().GetManifestResourceStream("Messages.AssetBundles." + name);
+		Debug.Log($"Loading Bundle: {"Tweets.AssetBundles." + name}");
+		return Assembly.GetExecutingAssembly().GetManifestResourceStream("Tweets.AssetBundles." + name);
 	}
 
 	
