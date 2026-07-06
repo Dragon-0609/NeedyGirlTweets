@@ -8,6 +8,22 @@ A mod that adds custom images to Ame's tweeter posts (can add to KAngel's posts 
 
 -----
 
+The mod contain these arts:
+* All normal *** action tweets (6/6)
+* 4 dinder tweets
+
+Other tweets' arts might be added later
+
+## How to install
+First make sure you have BepInEx. The mod is built for 1.4 version of the game, other versions were not tested.
+
+After, open Tweets.zip and extract its content to root folder of the game (where BepInEx is located).
+
+If it's working, it should add custom arts to the game after mentioned tweets I wrote above.
+
+
+-----
+
 ## Disclosure
 
 This mod uses arts generated with AI. If you don't like AI, then don't install this mod
