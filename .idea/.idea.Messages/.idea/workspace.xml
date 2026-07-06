@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3c1f1c37-175c-4a4d-891c-39fc7ae54f67" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Messages/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.Tweets/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_bed_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_bed_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_bed_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_bed_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_bed_5.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_bed_6.jpg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_dinder_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_dinder_1_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_dinder_2.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_dinder_3.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_dinder_4.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Arts/ame_dress_1.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Editor.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Editor/BuildBundle.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Scenes/SampleScene.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Settings.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Settings/Lit2DSceneTemplate.scenetemplate.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Settings/Renderer2D.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Settings/Scenes.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Settings/Scenes/URP2DSceneTemplate.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/Settings/UniversalRP.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unity/Assets/UniversalRenderPipelineGlobalSettings.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Messages/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tweets/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Messages/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tweets/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Messages/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tweets/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Messages/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tweets/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Tweets.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/AssetBundlesToCopy.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Constants.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/GlobalUsings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Message.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Message.csproj.DotSettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Patches/LoadPicturePatch.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Patches/Patcher.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Patches/PoketterCellPatch.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Plugin.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/ResourceChanger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Utils/Binary.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Utils/Data/DataSaver.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Utils/Data/EnumHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Utils/HarmonyHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Utils/Logger.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Utils/MonoBehaviourExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Utils/ReflectionExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Utils/StreamHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Messages/Utils/WaitUntil.cs" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="53055c28-0eda-47c9-8f2d-cc4f208f9a0a" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/36dde0a4264046fc86d3f9b19ec84980564da0/50/b138f057/IDisposable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/36dde0a4264046fc86d3f9b19ec84980564da0/da/3878938e/Assembly.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/474744d65d8e460fa08cd5fd82b5d65f32000/1c/49af133e/Patch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/474744d65d8e460fa08cd5fd82b5d65f32000/84/d1c91bdc/HarmonyPatch.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6c0caf3d28ad494e89e4b05adf4b96448018/32/2a3704cc/AssetBundle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6f4e4e0709c34650a8577634def08b2817c00/44/5f72d723/UniTask`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8aa30cfa256e4d08bdd85376c9360556ae800/7b/751a161e/ResourceRequest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8aa30cfa256e4d08bdd85376c9360556ae800/bc/20f48000/CachedAssetBundle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9185a461e2a54cd99ed3b83eace57b3d1f200/93/ee0f94b1/ManualLogSource.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a224a5a6b48c45f98209a5a4b5c00d3c1fe00/7c/67a58f8d/AsyncOperationHandle`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/a81461a6a9cc41c3900c70b9c2b9bd7471e00/48/8d16b9dc/ReactiveCollection`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cc575b1622974d67a2b19c93ea3e97b63400/56/1b04e44c/AssetBundle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cc575b1622974d67a2b19c93ea3e97b63400/a2/06dd67dd/AssetBundleRequest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/0b/90d00a84/KusoRepView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/0d/612e2f5a/TweetMaster.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/10/09629d2a/PoketterView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/14/7656516d/ResourceLocal.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/1e/a641e713/EventManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/22/8ff1e1bc/CommandType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/25/a4502381/TweetFetcher.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/26/2dad42c2/SingletonMonoBehaviour`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/32/2254d5b4/PoketterCell2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/33/92cf922f/App_Webcam.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/42/1cf219e4/TweetType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/4f/b8bfe702/JineManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/6a/381bcf38/Action_PlayMakeLove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/70/2e229d12/StatusManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/78/67b86b3b/PoketterManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/7b/042c52dd/LoadPictures.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/7c/7ebcdaeb/ResourceLocalMaster.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/86/13bbba6f/TweetDrawable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/87/dc37bfe4/EgosaRepView2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/87/f3421754/ImageViewerHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/8f/084414df/PoketterCellStatic2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/af/3433cb5c/NotificationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/b4/757cc9e3/Event_Dialog.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/b8/689f1d62/PoketterView2D.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/b8/dcd0caa7/EndingOmake.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/da/f051234a/Ending_Lust.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/dc/69f3833c/TweetData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/e0/e0e7b6f5/PoketterCell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd936129d2944a0cb1f1d859f87123c827b200/f4/232ac20a/Ending_kyouso_haishin.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/metadata/02a7e24c1c274b7eba3e02d992c674d01ec18/08/35ecaca7/UnityEngine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Messages/Constants.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Messages/Patches/LoadPicturePatch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Messages/Patches/Patcher.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Messages/Patches/PoketterCellPatch.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Messages/Plugin.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Messages/ResourceChanger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Messages/Utils/Logger.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="3G5SGPfiXNYZPtqxcGqtlTPMBHV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Native Executable.Needy Girl.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Native Executable.Needy Girl">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="useMixedMode" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Attach to Unity Editor.Attach to Unity Editor" />
+      <item itemvalue="Native Executable.Needy Girl" />
+    </list>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3c1f1c37-175c-4a4d-891c-39fc7ae54f67" name="Changes" comment="" />
+      <created>1783259840669</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1783259840669</updated>
+      <workItem from="1783259842161" duration="461000" />
+      <workItem from="1783268243636" duration="24203000" />
+      <workItem from="1783316348585" duration="1498000" />
+      <workItem from="1783336108330" duration="528000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.OperationCanceledException" breakIfHandledByOtherCode="false" displayValue="System.OperationCanceledException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.Tasks.TaskCanceledException" breakIfHandledByOtherCode="false" displayValue="System.Threading.Tasks.TaskCanceledException" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="3" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
