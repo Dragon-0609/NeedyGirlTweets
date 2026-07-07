@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
-using System.Text;
 using HarmonyLib;
 using Newtonsoft.Json;
 using NGO;
 using ngov3;
+using Tweets.Data;
 using Tweets.Utils;
-using Tweets.Utils.Data;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using TweetData = Tweets.Utils.TweetData;
 
 namespace Tweets;
@@ -24,13 +25,16 @@ public class ResourceChanger
 	private List<TweetMaster.Param> _tweetRawList;
 
 	private Dictionary<string, LoadPictures.PictureHandleData> ImagesCache;
-	private List<string> _customImages = new();
+	private HashSet<string> _customImages = new();
 	private Dictionary<string, Sprite> _alreadyLoadedSprites = new();
-	
+	private Dictionary<string, List<string>> _candidateImages = new();
+
+	private List<DataVariant<string>> _choosenArts = new();
+	private List<DataVariantCollection<string>> _artVariantCollections = new();
 
 	public AssetBundle AssetBundle => _assetBundle;
 
-	public List<string> CustomImages => _customImages;
+	public HashSet<string> CustomImages => _customImages;
 
 	public Dictionary<string, Sprite> AlreadyLoadedSprites => _alreadyLoadedSprites;
 
@@ -125,7 +129,7 @@ public class ResourceChanger
 			$"Tweet ID:{param.Id}, command ID: {param.CommandID} ({command}), public image: {param.OmoteImageId}, private image: {param.UraImageId}, \npublic text: {param.OmoteBodyEn}\n\nprivate text:{param.UraBodyEn}\n");
 	}
 
-	public bool TryAddPrivateImage(TweetType tweet, CommandType command, string image)
+	public bool AddPrivateImage(TweetType tweet, CommandType command, string image)
 	{
 		string tId = tweet.ToString();
 		string cId = command.ToString();
@@ -147,6 +151,45 @@ public class ResourceChanger
 			FileName = image,
 			Id = image,
 			Path = image
+		});
+		
+		return true;
+	}
+
+	public bool AddPrivateImages(TweetType tweet, CommandType command, params string[] images)
+	{
+		string tId = tweet.ToString();
+		string cId = command.ToString();
+
+		TweetMaster.Param finding = _tweetList.Find(item => item.Id == tId && item.CommandID == cId);
+
+		if (finding == null)
+		{
+			return false;
+		}
+
+		string variantsKey = images[0] + $"_variants";
+		finding.UraImageId = variantsKey;
+		
+		foreach (string image in images)
+		{
+			_customImages.Add(image);
+		}
+		
+		_customImages.Add(variantsKey);
+		// Log($"Added {image} to customImages");
+		
+		_resourceMaster.ResourceList.Add(new ResourceLocal()
+		{
+			FileName = variantsKey,
+			Id = variantsKey,
+			Path = variantsKey
+		});
+
+		_artVariantCollections.Add(new DataVariantCollection<string>()
+		{
+			Key = variantsKey,
+			Values = images
 		});
 		
 		return true;
@@ -196,5 +239,57 @@ public class ResourceChanger
 		return Assembly.GetExecutingAssembly().GetManifestResourceStream("Tweets.AssetBundles." + name);
 	}
 
-	
+
+	public List<DataVariant<string>> GetChosenVariants()
+	{
+		return _choosenArts;
+	}
+
+	public void SetChosenVariants(List<DataVariant<string>> tweetVariants)
+	{
+		ClearChosenVariants();
+		
+		// ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+		if (tweetVariants == null) return;
+
+		_choosenArts.AddRange(tweetVariants);
+	}
+
+	public void ClearChosenVariants()
+	{
+		_choosenArts.Clear();
+	}
+
+	public bool IsVariantsKey(string key)
+	{
+		return key.EndsWith("_variants");
+	}
+
+	public string ChooseVariant(string address)
+	{
+		foreach (DataVariant<string> variant in _choosenArts)
+		{
+			if (variant.Key == address)
+			{
+				return variant.Value;
+			}
+		}
+
+
+		DataVariantCollection<string>? collection = _artVariantCollections.FirstOrDefault(v => v.Key == address);
+
+		if (collection == null)
+		{
+			LogError($"Variant collection with {address} was not found", true);
+			return "null";
+		}
+
+		DataVariant<string> endVariant = new DataVariant<string>();
+		endVariant.Key = address;
+		endVariant.Value = collection.Values[Random.Range(0, collection.Values.Length)];
+		
+		_choosenArts.Add(endVariant);
+		
+		return endVariant.Value;
+	}
 }

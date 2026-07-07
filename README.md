@@ -12,7 +12,7 @@ The mod contain these arts:
 * All normal *** action tweets (6/6)
 * 4 dinder tweets (4/6)
 * 2 going out in Akihabara (2/5)
-* 1 going out in Ueno (1/3)
+* 1 going out in Ueno (1/3) (3 art variants that will be chosen randomly)
 
 Other tweets' arts might be added later
 

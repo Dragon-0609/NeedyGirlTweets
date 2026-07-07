@@ -5,25 +5,29 @@ using ngov3;
 
 namespace Tweets.Patches;
 
-public class Patcher
+public static class Patcher
 {
-	public static Patcher Instance;
-	
-	public Patcher()
+	private static Harmony _harmony;
+
+	internal static Harmony HarmonyRef => _harmony;
+
+	internal static void Patch()
 	{
-		Instance = this;
-		Patch();
+		_harmony = new Harmony(PluginGuid);
+		PatchImageHandling();
+		
+		GameSaveHooks.PatchSaves();
 	}
-	
-	private static void Patch()
+
+	private static void PatchImageHandling()
 	{
-		Harmony harmony = new Harmony(PluginGuid);
-		PatchPrefix(harmony, AccessTools.Method(typeof(LoadPictures), nameof(LoadPictures.LoadPictureAsync)),
+		PatchPrefix(_harmony, AccessTools.Method(typeof(LoadPictures), nameof(LoadPictures.LoadPictureAsync)),
 			AccessTools.Method(typeof(LoadPicturePatch), nameof(LoadPicturePatch.Prefix)));
 		// PatchPrefix(harmony, AccessTools.Method(typeof(PoketterCell2D), nameof(PoketterCell2D.SetData)), AccessTools.Method(typeof(PoketterCellPatch), nameof(PoketterCellPatch.Prefix)));
-		PatchPostfix(harmony, AccessTools.Method(typeof(PoketterCell2D), nameof(PoketterCell2D.SetDataStatic)),
+		PatchPostfix(_harmony, AccessTools.Method(typeof(PoketterCell2D), nameof(PoketterCell2D.SetDataStatic)),
 			AccessTools.Method(typeof(PoketterCellPatch), nameof(PoketterCellPatch.Postfix)));
-
+		
+		
 		Plugin.Instance.Invoke(nameof(DelayedCheck), 3f);
 	}
 
@@ -63,7 +67,7 @@ public class Patcher
 		}
 	}
 
-	private void DelayedCheck()
+	private static void DelayedCheck()
 	{
 		CheckPatch(AccessTools.Method(typeof(LoadPictures), nameof(LoadPictures.LoadPictureAsync)));
 		CheckPatch(AccessTools.Method(typeof(PoketterCell2D), nameof(PoketterCell2D.SetData)));

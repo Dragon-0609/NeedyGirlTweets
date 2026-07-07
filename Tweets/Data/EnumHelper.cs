@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Tweets.Utils.Data;
+namespace Tweets.Data;
 
 public static class EnumHelper
 {

@@ -41,6 +41,9 @@
         <Reference Include="Assembly-CSharp">
             <HintPath>..\..\Libraries\game\Assembly-CSharp.dll</HintPath>
         </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+          <HintPath>..\..\Libraries\game\Assembly-CSharp-firstpass.dll</HintPath>
+        </Reference>
         <Reference Include="BepInEx">
             <HintPath>..\..\Libraries\BepInEx\BepInEx.dll</HintPath>
         </Reference>
@@ -94,7 +97,11 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Constants.cs"/>
+        <Compile Include="Data\DataSaver.cs" />
+        <Compile Include="Data\DataStructures.cs" />
+        <Compile Include="Data\EnumHelper.cs" />
         <Compile Include="GlobalUsings.cs"/>
+        <Compile Include="Patches\GameSaveHooks.cs" />
         <Compile Include="Patches\LoadPicturePatch.cs" />
         <Compile Include="Patches\Patcher.cs" />
         <Compile Include="Patches\PoketterCellPatch.cs" />
@@ -102,8 +109,6 @@
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="ResourceChanger.cs" />
         <Compile Include="Utils\Binary.cs"/>
-        <Compile Include="Utils\Data\DataSaver.cs"/>
-        <Compile Include="Utils\Data\EnumHelper.cs" />
         <Compile Include="Utils\HarmonyHelper.cs"/>
         <Compile Include="Utils\Logger.cs"/>
         <Compile Include="Utils\MonoBehaviourExtensions.cs"/>
@@ -113,8 +118,8 @@
         <Compile Include="Utils\WaitUntil.cs"/>
     </ItemGroup>
     <ItemGroup>
-      <Content Include="Data\tweets_changed.json" />
-      <Content Include="Data\tweets_original.json" />
+      <Content Include="Data\JSON\tweets_changed.json" />
+      <Content Include="Data\JSON\tweets_original.json" />
       <EmbeddedResource Include="AssetBundles\dragon_lv.tweets.bundle" />
       <Content Include="AssetBundlesToCopy.txt" />
     </ItemGroup>

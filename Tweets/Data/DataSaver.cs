@@ -7,7 +7,7 @@ using UnityEngine;
 
 // ReSharper disable MemberCanBePrivate.Global
 
-namespace Tweets.Utils.Data;
+namespace Tweets.Data;
 
 public static class DataSaver
 {

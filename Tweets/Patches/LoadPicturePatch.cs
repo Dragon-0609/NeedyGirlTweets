@@ -16,18 +16,26 @@ public static class LoadPicturePatch
 		LoadPictures.PictureType type,
 		ref UniTask<Sprite> __result)
 	{
-		Log("Prefix worked");
+		// Log("Prefix worked");
 		if (ResourceChanger.Instance == null)
 		{
 			Debug.LogWarning($"ResourceChanger instance is null");
-			return false;
+			return true;
 		}
 
-		Log($"Should Intercept: {address} {ResourceChanger.Instance.CustomImages.Contains(address)}"); //(at {Environment.StackTrace})");
+		// Log($"Should Intercept: {address} {ResourceChanger.Instance.CustomImages.Contains(address)}"); //(at {Environment.StackTrace})");
 		
 		if (!ResourceChanger.Instance.CustomImages.Contains(address))
 			return true; // Let the original method execute
 
+		if (ResourceChanger.Instance.IsVariantsKey(address))
+		{
+			address = ResourceChanger.Instance.ChooseVariant(address);
+			if (address == "null")
+			{
+				return true;
+			}
+		}
 
 		if (ResourceChanger.Instance.AlreadyLoadedSprites.ContainsKey(address))
 		{
