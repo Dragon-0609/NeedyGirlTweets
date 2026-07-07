@@ -1,5 +1,5 @@
 # Tweeter Custom Images Mod for Needy Streamer Overload
-![Screenshot 1](Screenshots/Screenshot%201.jpg)
+![Screenshot](Screenshots/Screenshot.jpg)
 
 A mod that adds custom images to Ame's tweeter posts (can add to KAngel's posts too).
 
@@ -10,7 +10,9 @@ A mod that adds custom images to Ame's tweeter posts (can add to KAngel's posts 
 
 The mod contain these arts:
 * All normal *** action tweets (6/6)
-* 4 dinder tweets
+* 4 dinder tweets (4/6)
+* 2 going out in Akihabara (2/5)
+* 1 going out in Ueno (1/3)
 
 Other tweets' arts might be added later
 
