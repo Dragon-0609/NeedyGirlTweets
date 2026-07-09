@@ -1,9 +1,9 @@
 ﻿name: Build Mod
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    # Runs once per day at around 23:36 UTC.
+    - cron: '36 23 * * *'
   workflow_dispatch:
 
 permissions:
@@ -18,13 +18,69 @@ env:
   CONFIGURATION: Release
 
 jobs:
+  check_changes:
+    name: Check for new commits
+    runs-on: ubuntu-latest
+    outputs:
+      should_build: ${{ steps.check.outputs.should_build }}
+      current_sha: ${{ steps.check.outputs.current_sha }}
+      previous_sha: ${{ steps.check.outputs.previous_sha }}
+
+    steps:
+      - name: Checkout public repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if main changed since last nightly build
+        id: check
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          current_sha="$(git rev-parse HEAD)"
+          echo "current_sha=$current_sha" >> "$GITHUB_OUTPUT"
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual run: building regardless of nightly tag."
+            echo "previous_sha=manual" >> "$GITHUB_OUTPUT"
+            echo "should_build=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git fetch --force --tags origin
+
+          if git rev-parse -q --verify "refs/tags/nightly" >/dev/null; then
+            previous_sha="$(git rev-parse refs/tags/nightly)"
+            echo "previous_sha=$previous_sha" >> "$GITHUB_OUTPUT"
+
+            echo "Current main SHA: $current_sha"
+            echo "Current nightly tag SHA: $previous_sha"
+
+            if [ "$current_sha" = "$previous_sha" ]; then
+              echo "No new commits since the last nightly build. Skipping build."
+              echo "should_build=false" >> "$GITHUB_OUTPUT"
+            else
+              echo "New commits found. Build will run."
+              echo "should_build=true" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "Nightly tag does not exist yet. Build will run."
+            echo "previous_sha=none" >> "$GITHUB_OUTPUT"
+            echo "should_build=true" >> "$GITHUB_OUTPUT"
+          fi
+
   build:
     name: Build and package
+    needs: check_changes
+    if: needs.check_changes.outputs.should_build == 'true'
     runs-on: windows-latest
 
     steps:
       - name: Checkout public repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
