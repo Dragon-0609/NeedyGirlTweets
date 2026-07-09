@@ -245,7 +245,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         shell: pwsh
         env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $nightlyTag = "nightly"
           $nightlyZip = "$env:PROJECT_NAME-nightly.zip"
