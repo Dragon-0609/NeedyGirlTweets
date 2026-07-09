@@ -23,6 +23,13 @@ After, open Tweets.zip and extract its content to root folder of the game (where
 
 If it's working, it should add custom arts to the game after mentioned tweets I wrote above.
 
+## Downloads
+### Stable Releases
+Stable releases are available on the [Releases page](https://github.com/Dragon-0609/NeedyGirlTweets/releases).
+### Nightly Build
+Nightly builds in this link:
+[nightly build](https://github.com/Dragon-0609/NeedyGirlTweets/releases/download/nightly/Tweets-nightly.zip)
+> Nightly builds may be unstable. Use stable releases if you want the safest version.
 
 -----
 

@@ -1,0 +1,277 @@
+﻿name: Build Mod
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  LIBRARIES_REPO: ${{ vars.LIBRARIES_REPO }}
+  LIBRARIES_RELEASE: ${{ vars.LIBRARIES_RELEASE }}
+  PROJECT_NAME: ${{ vars.PROJECT_NAME }}
+  AUTHOR_NAME: ${{ vars.AUTHOR_NAME }}
+  SOLUTION_FILE: ${{ vars.SOLUTION_FILE }}
+  CONFIGURATION: Release
+
+jobs:
+  build:
+    name: Build and package
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout public repository
+        uses: actions/checkout@v4
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v2
+
+      - name: Restore NuGet packages
+        shell: pwsh
+        run: |
+          nuget restore "$env:SOLUTION_FILE"
+
+      - name: Download private Libraries.zip
+        shell: pwsh
+        env:
+          LIBRARIES_TOKEN: ${{ secrets.LIBRARIES_TOKEN }}
+        run: |
+          if ([string]::IsNullOrWhiteSpace($env:LIBRARIES_TOKEN)) {
+            throw "LIBRARIES_TOKEN secret is missing. Add it in Settings > Secrets and variables > Actions."
+          }
+
+          if ([string]::IsNullOrWhiteSpace($env:LIBRARIES_REPO)) {
+            throw "LIBRARIES_REPO variable is missing."
+          }
+
+          if ([string]::IsNullOrWhiteSpace($env:LIBRARIES_RELEASE)) {
+            throw "LIBRARIES_RELEASE variable is missing."
+          }
+
+          New-Item -ItemType Directory -Force -Path "_download" | Out-Null
+
+          $headers = @{
+            "Authorization" = "Bearer $env:LIBRARIES_TOKEN"
+            "Accept" = "application/vnd.github+json"
+            "X-GitHub-Api-Version" = "2022-11-28"
+          }
+
+          $releaseUrl = "https://api.github.com/repos/$env:LIBRARIES_REPO/releases/tags/$env:LIBRARIES_RELEASE"
+
+          Write-Host "Reading release information from $releaseUrl"
+          $release = Invoke-RestMethod -Headers $headers -Uri $releaseUrl
+
+          $asset = $release.assets |
+            Where-Object { $_.name -eq "Libraries.zip" } |
+            Select-Object -First 1
+
+          if (-not $asset) {
+            throw "Could not find Libraries.zip in release $env:LIBRARIES_RELEASE of $env:LIBRARIES_REPO."
+          }
+
+          Write-Host "Downloading Libraries.zip"
+
+          $downloadHeaders = @{
+            "Authorization" = "Bearer $env:LIBRARIES_TOKEN"
+            "Accept" = "application/octet-stream"
+            "X-GitHub-Api-Version" = "2022-11-28"
+          }
+
+          Invoke-WebRequest `
+            -Headers $downloadHeaders `
+            -Uri $asset.url `
+            -OutFile "_download/Libraries.zip"
+
+          if (-not (Test-Path "_download/Libraries.zip")) {
+            throw "Libraries.zip was not downloaded."
+          }
+
+      - name: Extract Libraries to match existing csproj paths
+        shell: pwsh
+        run: |
+          $extractRoot = Join-Path $env:GITHUB_WORKSPACE "_download/extracted"
+
+          if (Test-Path $extractRoot) {
+            Remove-Item $extractRoot -Recurse -Force
+          }
+
+          New-Item -ItemType Directory -Force -Path $extractRoot | Out-Null
+
+          Expand-Archive `
+            -Path "_download/Libraries.zip" `
+            -DestinationPath $extractRoot `
+            -Force
+
+          # Case 1:
+          # Libraries.zip contains:
+          #
+          # Libraries/
+          #   Assembly-CSharp.dll
+          #   UnityEngine.dll
+          #
+          $sourceLibraries = Join-Path $extractRoot "Libraries"
+
+          # Case 2:
+          # Libraries.zip contains DLL files directly.
+          #
+          # Assembly-CSharp.dll
+          # UnityEngine.dll
+          #
+          if (-not (Test-Path $sourceLibraries)) {
+            $sourceLibraries = $extractRoot
+          }
+
+          $dlls = Get-ChildItem -Path $sourceLibraries -Recurse -Filter "*.dll"
+
+          if (-not $dlls) {
+            throw "No DLL files were found inside Libraries.zip."
+          }
+
+          Write-Host "Found private libraries:"
+          $dlls | ForEach-Object { Write-Host $_.FullName }
+
+          # Find all .csproj files that still reference ..\..\Libraries
+          $projectFiles = Get-ChildItem -Path $env:GITHUB_WORKSPACE -Recurse -Filter "*.csproj" |
+            Where-Object {
+              $content = Get-Content $_.FullName -Raw
+              $content -match "\.\.[\\/]\.\.[\\/]Libraries[\\/]"
+            }
+
+          if (-not $projectFiles) {
+            throw "No .csproj file was found with references to ..\..\Libraries\. Check your HintPath values."
+          }
+
+          $targetPaths = New-Object System.Collections.Generic.HashSet[string]
+
+          foreach ($project in $projectFiles) {
+            $projectDir = Split-Path $project.FullName -Parent
+
+            # This resolves ..\..\Libraries relative to the .csproj folder.
+            $targetLibraries = [System.IO.Path]::GetFullPath(
+              (Join-Path $projectDir "..\..\Libraries")
+            )
+
+            [void]$targetPaths.Add($targetLibraries)
+
+            Write-Host "Project file:"
+            Write-Host $project.FullName
+            Write-Host "Expected Libraries folder:"
+            Write-Host $targetLibraries
+          }
+
+          foreach ($target in $targetPaths) {
+            if (Test-Path $target) {
+              Remove-Item $target -Recurse -Force
+            }
+
+            New-Item -ItemType Directory -Force -Path $target | Out-Null
+
+            Copy-Item `
+              -Path (Join-Path $sourceLibraries "*") `
+              -Destination $target `
+              -Recurse `
+              -Force
+
+            Write-Host "Copied Libraries to:"
+            Write-Host $target
+
+            Write-Host "Target Libraries contents:"
+            Get-ChildItem -Path $target -Recurse
+          }
+
+      - name: Build solution
+        shell: pwsh
+        run: |
+          msbuild "$env:SOLUTION_FILE" `
+            /m `
+            /p:Configuration=$env:CONFIGURATION `
+            /p:Platform="Any CPU" `
+            /verbosity:minimal
+
+      - name: Create BepInEx package folder
+        shell: pwsh
+        run: |
+          $dll = Get-ChildItem -Path "." -Recurse -Filter "$env:PROJECT_NAME.dll" |
+            Where-Object { $_.FullName -match "\\bin\\$env:CONFIGURATION\\" } |
+            Select-Object -First 1
+
+          if (-not $dll) {
+            throw "Could not find $env:PROJECT_NAME.dll in a bin\$env:CONFIGURATION folder. Check PROJECT_NAME and build output path."
+          }
+
+          $packagePluginDir = "package/BepInEx/plugins/$env:AUTHOR_NAME"
+
+          New-Item -ItemType Directory -Force -Path $packagePluginDir | Out-Null
+
+          Copy-Item `
+            -Path $dll.FullName `
+            -Destination "$packagePluginDir/$env:PROJECT_NAME.dll" `
+            -Force
+
+          Write-Host "Package contents:"
+          Get-ChildItem -Path "package" -Recurse
+
+      - name: Create ZIP
+        shell: pwsh
+        run: |
+          $zipName = "$env:PROJECT_NAME" + "_" + "$env:GITHUB_RUN_NUMBER" + ".zip"
+
+          if (Test-Path $zipName) {
+            Remove-Item $zipName -Force
+          }
+
+          Compress-Archive `
+            -Path "package/*" `
+            -DestinationPath $zipName `
+            -Force
+
+          Add-Content -Path $env:GITHUB_ENV -Value "ZIP_NAME=$zipName"
+
+          Write-Host "Created $zipName"
+
+      - name: Upload ZIP artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ env.ZIP_NAME }}
+          path: ${{ env.ZIP_NAME }}
+          if-no-files-found: error
+      - name: Update Nightly Release
+        if: github.ref == 'refs/heads/main'
+        shell: pwsh
+        env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $nightlyTag = "nightly"
+          $nightlyZip = "$env:PROJECT_NAME-nightly.zip"
+          Copy-Item `
+          -Path "$env:ZIP_NAME" `
+          -Destination $nightlyZip `
+          -Force
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -f $nightlyTag $env:GITHUB_SHA
+          git push origin $nightlyTag --force
+          $releaseExists = $true
+          gh release view $nightlyTag 2>$null
+          if ($LASTEXITCODE -ne 0) {
+            $releaseExists = $false
+          }
+          if (-not $releaseExists) {
+            gh release create $nightlyTag `
+            --title "Nightly Build" `
+            --notes "Automatic nightly build from the latest main branch." `
+            --prerelease `
+            --latest=false
+          }
+          gh release upload $nightlyTag $nightlyZip --clobber
+          Write-Host "Nightly release updated."
+          Write-Host "Release page:"
+          Write-Host "https://github.com/$env:GITHUB_REPOSITORY/releases/tag/nightly"
+          Write-Host "Direct download:"
+          Write-Host "https://github.com/$env:GITHUB_REPOSITORY/releases/download/nightly/$nightlyZip"      
