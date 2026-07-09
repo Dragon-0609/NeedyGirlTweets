@@ -85,13 +85,6 @@ jobs:
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
 
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v2
-
-      - name: Restore NuGet packages
-        shell: pwsh
-        run: |
-          nuget restore "$env:SOLUTION_FILE"
 
       - name: Download private Libraries.zip
         shell: pwsh
