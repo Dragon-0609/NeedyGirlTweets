@@ -13,6 +13,10 @@ The mod contain these arts:
 * 4 dinder tweets (4/6)
 * 2 going out in Akihabara (2/5)
 * 1 going out in Ueno (1/3) (3 art variants that will be chosen randomly)
+* 1 going out in Nakano (2 variants that will be chosen randomly)
+* 1 going out in Ichigaya
+* 2 going out in Hikarigaoka (2 variants in one of them)
+* 1 watching movies (3 variants)
 
 Other tweets' arts might be added later
 

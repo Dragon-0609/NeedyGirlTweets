@@ -80,7 +80,7 @@
             <HintPath>..\..\Libraries\game\UnityEngine.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.AssetBundleModule">
-          <HintPath>..\..\Libraries\game\UnityEngine.AssetBundleModule.dll</HintPath>
+          <HintPath>..\..\Libraries\game_core\UnityEngine.AssetBundleModule.dll</HintPath>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
             <HintPath>..\..\Libraries\game\UnityEngine.CoreModule.dll</HintPath>

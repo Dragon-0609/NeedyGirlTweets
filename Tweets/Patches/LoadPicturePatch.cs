@@ -43,13 +43,17 @@ public static class LoadPicturePatch
 			__result = UniTask.FromResult(ResourceChanger.Instance.AlreadyLoadedSprites[address]);
 			return false;
 		}
-		
-		AssetBundleRequest sprite = ResourceChanger.Instance.AssetBundle.LoadAssetAsync(address, typeof(Sprite));
+
+		Sprite sprite = ResourceChanger.Instance.AssetBundle.LoadAsset<Sprite>(address);
 		// __result = LoadSpriteAsync(sprite);
+
+		if (sprite == null)
+		{
+			LogError($"Couldn't find or load {address}", true);
+		}
 		
-		Sprite spriteAsset = sprite.asset as Sprite;
-		ResourceChanger.Instance.AlreadyLoadedSprites.Add(address, spriteAsset);
-		__result = UniTask.FromResult(spriteAsset);
+		ResourceChanger.Instance.AlreadyLoadedSprites.Add(address, sprite);
+		__result = UniTask.FromResult(sprite);
 		
 		Log($"Loaded: {address}");
 		

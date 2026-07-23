@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 1501261095
+CRC: 1226949002
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dae3d42fbbbce6173190fa939eb5b797
+    Hash: 0308467c0115b6744787abf1e06cd065
   TypeTreeHash:
     serializedVersion: 2
     Hash: 2d8df09e698f722ada1caa03d3413830
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: dae3d42fbbbce6173190fa939eb5b797
+    Hash: 0308467c0115b6744787abf1e06cd065
 HashAppended: 0
 ClassTypes:
 - Class: 28
@@ -18,23 +18,29 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Arts/png/ame_bed_6.asset
-- Assets/Arts/ame_park_2.jpg
-- Assets/Arts/png/ame_bed_5.asset
-- Assets/Arts/ame_bed_1.jpg
-- Assets/Arts/png/ame_bed_4.asset
+- Assets/Arts/ame_dinder_2.png
 - Assets/Arts/ame_bed_6.asset
-- Assets/Arts/ame_park_1.jpg
-- Assets/Arts/ame_akiba_1.jpg
-- Assets/Arts/ame_bed_4.asset
-- Assets/Arts/Ame_akiba_3.jpg
 - Assets/Arts/ame_bed_5.asset
-- Assets/Arts/ame_dinder_1.jpg
-- Assets/Arts/ame_dinder_2.jpg
-- Assets/Arts/ame_park_3.jpg
-- Assets/Arts/ame_dinder_3.jpg
-- Assets/Arts/ame_bed_2.jpg
-- Assets/Arts/ame_dinder_4.jpg
-- Assets/Arts/ame_bed_3.jpg
-- Assets/Arts/ame_dress_1.jpg
+- Assets/Arts/ame_hikarigaoka_1.png
+- Assets/Arts/ame_bed_4.asset
+- Assets/Arts/ame_horror_1.png
+- Assets/Arts/ame_park_1.png
+- Assets/Arts/ame_bed_3.png
+- Assets/Arts/ame_bed_2.png
+- Assets/Arts/ame_park_2.png
+- Assets/Arts/Ame_akiba_3.png
+- Assets/Arts/ame_arcade_1_1.png
+- Assets/Arts/ame_dinder_4.png
+- Assets/Arts/ame_akiba_2.png
+- Assets/Arts/ame_horror_3.png
+- Assets/Arts/ame_hikarigaoka_3.png
+- Assets/Arts/ame_arcade_1.png
+- Assets/Arts/ame_bed_1.png
+- Assets/Arts/ame_dinder_1.png
+- Assets/Arts/ame_fishing_1.png
+- Assets/Arts/ame_akiba_1.png
+- Assets/Arts/ame_park_3.png
+- Assets/Arts/ame_horror_2.png
+- Assets/Arts/ame_dinder_3.png
+- Assets/Arts/ame_hikarigaoka_2.png
 Dependencies: []

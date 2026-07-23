@@ -219,7 +219,7 @@ public class ResourceChanger
 	private AssetBundle LoadAssetBundle(string bundleName)
 	{
 		Stream bundleResource = GetAssetBundleResource(bundleName);
-		Debug.Log($"Is Bundle null: {bundleResource == null}");
+		// Log($"Is Bundle null: {bundleResource == null}");
 		if (bundleResource == null)
 		{
 			LogError($"{bundleName} was null", true);
@@ -235,7 +235,7 @@ public class ResourceChanger
 	
 	private static Stream GetAssetBundleResource(string name)
 	{
-		Debug.Log($"Loading Bundle: {"Tweets.AssetBundles." + name}");
+		// Log($"Loading Bundle: {"Tweets.AssetBundles." + name}");
 		return Assembly.GetExecutingAssembly().GetManifestResourceStream("Tweets.AssetBundles." + name);
 	}
 

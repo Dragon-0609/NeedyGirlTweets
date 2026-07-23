@@ -23,7 +23,7 @@ public static class Patcher
 	{
 		PatchPrefix(_harmony, AccessTools.Method(typeof(LoadPictures), nameof(LoadPictures.LoadPictureAsync)),
 			AccessTools.Method(typeof(LoadPicturePatch), nameof(LoadPicturePatch.Prefix)));
-		// PatchPrefix(harmony, AccessTools.Method(typeof(PoketterCell2D), nameof(PoketterCell2D.SetData)), AccessTools.Method(typeof(PoketterCellPatch), nameof(PoketterCellPatch.Prefix)));
+		PatchPostfix(_harmony, AccessTools.Method(typeof(PoketterCell2D), nameof(PoketterCell2D.SetData)), AccessTools.Method(typeof(PoketterCellPatch), nameof(PoketterCellPatch.Postfix)));
 		PatchPostfix(_harmony, AccessTools.Method(typeof(PoketterCell2D), nameof(PoketterCell2D.SetDataStatic)),
 			AccessTools.Method(typeof(PoketterCellPatch), nameof(PoketterCellPatch.Postfix)));
 		

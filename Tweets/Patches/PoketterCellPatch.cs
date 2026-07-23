@@ -22,10 +22,10 @@ public static class PoketterCellPatch
 	{
 		bool exist = (bool) __instance.GetPrivate("_imageExist");
 
+		Log($"Does image exist {exist} in {nakami.ImageId} ({nakami.BodyEn})");
 		if (exist && ResourceChanger.Instance.CustomImages.Contains(nakami.ImageId))
 			Plugin.Instance.StartCoroutine(DelayedLayoutUpdate(__instance));
 		
-		// Log($"Does image exist {exist} in {nakami.ImageId} ({nakami.BodyEn})");
 	}
 
 	private static IEnumerator DelayedLayoutUpdate(PoketterCell2D poketterCell2D)

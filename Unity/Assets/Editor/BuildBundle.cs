@@ -18,7 +18,7 @@ public class BuildBundle
 		BuildPipeline.BuildAssetBundles(path, BuildAssetBundleOptions.None,
 			BuildTarget.StandaloneWindows64);
 
-		Debug.Log("Bundles were created");
+		Debug.Log($"Bundles were created at {path}");
 	}
 
 	[MenuItem("Tools/Set Bundle Path &S")]
