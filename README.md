@@ -18,6 +18,8 @@ The mod contain these arts:
 * 2 going out in Hikarigaoka (2 variants in one of them)
 * 1 watching movies (3 variants)
 
+Note: Some arts (1 Hikarigaoka, 1 Ichigaya, 1 Nakano) need `Override Original` setting to be enabled. You can enable it with either manually editing `BepInEx\config\needygirl.dragon_lv.tweets.cfg` and setting `Override Original` to `true` or with using [ModsSettings](https://github.com/Dragon-0609/NeedyGirlModsSettings) mod.
+
 Other tweets' arts might be added later
 
 ## How to install
